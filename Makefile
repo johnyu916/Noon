@@ -20,6 +20,9 @@ noon: $(OBJ) $(OBJDIR)/main.o
 noont: $(SRCDIR)/test.cpp noon
 	$(CC) $< -o $@
 
+fibo: $(SRCDIR)/fibonacci.cpp noon
+	$(CC) $< -o $@
+
 clean:
 	rm $(OBJDIR)/*.o noon noont
 

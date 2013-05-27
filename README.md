@@ -23,8 +23,8 @@ Language definition:
 
 read_location branch write_value
 
-read_location - memory address to read
-branch - where to branch next if location is 1
-write_value - write some value to read_location
+read_location - unsigned integer memory address to read
+branch - unsigned interger where to branch next if location is 1
+write_value - boolean write some value to read_location
 
 
