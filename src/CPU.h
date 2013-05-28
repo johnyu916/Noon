@@ -20,19 +20,21 @@ namespace Noon{
     class Instruction{
         public:
             Instruction();
-            Instruction(bool read, bool offset, bool write);
+            Instruction(U32 read, U32 branch); //just branch based on read value, leave location as is
+            Instruction(U32 read, U32 branch, bool writeBoth);
+            Instruction(U32 read, U32 branch, bool writeIfOne, bool writeElse);
             string info();
-            bool read(){return read_;}
-            void read(bool read){read_=read;}
-            bool branch(){return branch_;}
-            void branch(bool read){branch_=read;}
+            U32 read(){return read_;}
+            void read(U32 read){read_=read;}
+            U32 branch(){return branch_;}
+            void branch(U32 read){branch_=read;}
             bool write(){return write_;}
             void write(bool read){write_=read;}
 
         private:
-            bool read_;
-            bool branch_;
-            bool write_;
+            U32 read_;
+            U32 branch_;
+            bool writeIfOne_, writeElse_;
     };
 
     class CPU{

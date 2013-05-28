@@ -13,11 +13,11 @@ namespace Noon{
     Bit::Bit():val_(false){}
     Bit::Bit(bool val):val_(val){}
     
-    Instruction::Instruction():read_(false),branch_(false),write_(false){
+    Instruction::Instruction():read_(0),branch_(0),write_(false){
 
     }
     
-    Instruction::Instruction(bool read, bool offset, bool write):read_(read),branch_(offset),write_(write){
+    Instruction::Instruction(U32 read, U32 offset, bool write):read_(read),branch_(offset),write_(write){
         
     }
     string Instruction::info(){
@@ -50,8 +50,8 @@ namespace Noon{
             }
         };
         Instruction insn = insns[idx];
-        bool read = insn.read();
-        bool branch = insn.branch();
+        U32 read = insn.read();
+        U32 branch = insn.branch();
         bool write = insn.write();
 
         debug("Running instruction: "<<insn.info());
