@@ -39,15 +39,17 @@ namespace Noon{
         tokens.pop_front();
         string third = tokens.front();
         tokens.pop_front();
-        bool read, offset, write;
+        string fourth = tokens.front();
+        bool read, offset, writeIfOne, writeElse;
         
-        if (0 != binary(first, read) || 0 != binary(second, offset) || 0 != binary(third, write)){
+        if (0 != binary(first, read) || 0 != binary(second, offset) || 0 != binary(third, writeIfOne) || 0 != binary(fourth, writeElse)){
             cerr << "line should only have 0 and 1s but doesnt: "<<line<<endl;
             return 5;
         }
         insn.read(read);
         insn.branch(offset);
-        insn.write(write);
+        insn.writeIfOne(writeIfOne);
+        insn.writeElse(writeElse);
 
         return 0;
     }
