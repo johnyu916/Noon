@@ -5,9 +5,11 @@
 #include "Types.h"
 
 using namespace std;
+typedef bool Bit;
 
 //have data memory and instruction memory
 namespace Noon{
+    /*
     class Bit{
         public:
             Bit();
@@ -16,7 +18,7 @@ namespace Noon{
             void value(bool val){ val_=val;}
         private:
             bool val_;
-    };
+    };*/
     class Instruction{
         public:
             Instruction();
